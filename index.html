@@ -7,14 +7,14 @@
   <meta name="author" content="Ehsan Saleh, Saba Ghaffari, David Forsyth, and Yu-xiong Wang">
   <title>Firth Bias Reduction in Few-Shot Learning</title>
 
-  <link rel="icon" type="image/png"  href="/firthfsl/assets/firthfsllog_wl.ico">
+  <link rel="icon" type="image/png"  href="/assets/firthfsllog_wl.ico">
 
   <!-- CSS -->
-   <link rel="stylesheet" href="/firthfsl/libs/katex/katex.min.css">
+   <link rel="stylesheet" href="/libs/katex/katex.min.css">
      
-   <link rel="stylesheet" href="/firthfsl/libs/highlight/styles/atom-one-dark-reasonable.css">
+   <link rel="stylesheet" href="/libs/highlight/styles/atom-one-dark-reasonable.css">
    
-  <link rel="stylesheet" href="/firthfsl/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
   <style>.bg-primary {
   background-color: #10797d !important;
 }
@@ -64,7 +64,7 @@ pre code.hljs.plaintext {
   color: #ffffff;
 }
 </style>
-  <link rel="stylesheet" href="/firthfsl/css/custom.css">
+  <link rel="stylesheet" href="/css/custom.css">
 
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 
@@ -83,7 +83,7 @@ pre code.hljs.plaintext {
     <div class="container">
       <span class="navbar-brand">
         
-          <img src="/firthfsl/assets/firthfsllogo_wl.svg" class="img-fluid" style="height:         25px;
+          <img src="/assets/firthfsllogo_wl.svg" class="img-fluid" style="height:         25px;
 padding-right:  10px;
 " alt="Logo"/>
         
@@ -164,9 +164,9 @@ Few-Shot Classification
     </div>
 
     <div class="row justify-content-center">
-      <div class="col-1"> <a href="https://arxiv.org/abs/2110.02529" target="_blank"> <img src="/firthfsl/assets/paper_icon.png" class="firth_icons"> </a> </div>
-      <div class="col-1"> <a href="https://github.com/ehsansaleh/firth_bias_reduction" target="_blank"> <img src="/firthfsl/assets/github_icon3.png" class="firth_icons"> </a> </div>
-      <div class="col-1"> <a href=https://databank.illinois.edu/datasets/IDB-1016367?code=UfxmYNvnxRZQmPzXNiM4--tCfFeEHm-msxZWihwKmHs target="_blank"> <img src="/firthfsl/assets/data_icon2.png" class="firth_icons"> </a> </div>
+      <div class="col-1"> <a href="https://arxiv.org/abs/2110.02529" target="_blank"> <img src="/assets/paper_icon.png" class="firth_icons"> </a> </div>
+      <div class="col-1"> <a href="https://github.com/ehsansaleh/firth_bias_reduction" target="_blank"> <img src="/assets/github_icon3.png" class="firth_icons"> </a> </div>
+      <div class="col-1"> <a href=https://databank.illinois.edu/datasets/IDB-1016367?code=UfxmYNvnxRZQmPzXNiM4--tCfFeEHm-msxZWihwKmHs target="_blank"> <img src="/assets/data_icon2.png" class="firth_icons"> </a> </div>
     </div>
 
     <div class="row justify-content-center">
@@ -195,7 +195,7 @@ Few-Shot Classification
 <p>The few shots you use are random samples, so the MLEs are going to be random variables too. There is no easy way around this stochasticity and you would always get some randomness or variance in the resulting MLE.</p>
 <p>That being said, it&#39;s only reasonable to hope that you&#39;d get the right parameters with MLE, at least on average. Well, that&#39;s the issue&#33; Not only MLEs can have a lot of variance, but also they can be severely off even on-average&#33;</p>
  <div style="text-align:center;"> <figure class="figure">
-  <img src="/firthfsl/assets/static_figures/mlebiasslide.svg" alt="A conceptual visualization of the classifier parameter estimation's bias problem in few-shot learning." class="figure-img img-fluid " width="100%" style="border-radius:5px;">
+  <img src="/assets/static_figures/mlebiasslide.svg" alt="A conceptual visualization of the classifier parameter estimation's bias problem in few-shot learning." class="figure-img img-fluid " width="100%" style="border-radius:5px;">
   <figcaption class="figure-caption ">
 A conceptual visualization of the classifier parameter estimation's bias problem in few-shot learning.
 </figcaption>
@@ -206,9 +206,9 @@ A conceptual visualization of the classifier parameter estimation's bias problem
 <p>Here is a simple toy-example show-casing this issue in a <a href="https://en.wikipedia.org/wiki/Geometric_distribution">few-shot geometric experiment with a fair coin</a> &#40;yes; the same exact problem from your introductory probability course&#41;.</p>
 <p>You want to recover the coin head probability with a few number of samples, so you use the MLE. However, you&#39;re curious if you&#39;d even get the right parameter on average. To check that, you simulate some experiments in python and plot the average MLE. Here&#39;s what you&#39;ll see:</p>
  <div style="text-align:center;">  <div class="container"><div class="row"> <div class="col "> <em>The Average MLE in a Geometric Experiment</em></p>
- <img src="/firthfsl/assets/static_figures/avgmle_vs_nsamples_geom.svg" alt="drawing" width="100%"/>
+ <img src="/assets/static_figures/avgmle_vs_nsamples_geom.svg" alt="drawing" width="100%"/>
 <p>The <span style="color:blue;">blue</span> points show the average MLE for various sample sizes. The <strong>black</strong> double-sided vertical arrow shows the MLE bias away from the true parameter. The <span style="color:red;">red</span> points show a slightly better estimator than MLE. </div> <div class="col "> <em>The MLE Bias vs. the Sample Size in a log-log Scale</em></p>
- <img src="/firthfsl/assets/static_figures/logmlebias_vs_lognsamples_geom.svg" alt="drawing" width="100%"/>
+ <img src="/assets/static_figures/logmlebias_vs_lognsamples_geom.svg" alt="drawing" width="100%"/>
 <p>The vertical axis shows the log-10 of the MLE bias, and the horizontal axis shows the log-10 of the number of samples. The bias isn&#39;t going away as fast as you would hope so; it&#39;s of <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>N</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(N^{-1})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> and far from an exponential drop for sure. </div></p>
 <p> </div></div>  </div>
 <p>This begs the central question in our paper:</p>
@@ -245,13 +245,13 @@ A conceptual visualization of the classifier parameter estimation's bias problem
       <div class="col-lg-10 mx-auto">
         <h2>Experiments and Results</h2> <strong>Logistic Classifiers and Basic Feature Backbones</strong></p>
 <p>The following is the effect of Firth bias reduction compared to typical L2 regularization in 16-way few-shot classification tasks using basic feature backbones and 1-layer logistic classifiers. The vertical axis shows the accuracy improvements, and the horizontal axis shows the number of shots.</p>
- <div style="text-align:center;">  <div class="container"><div class="row"> <div class="col ">  <img src="/firthfsl/assets/static_figures/dacc_vs_nshots_firth_1layer_mini.svg" alt="drawing" width="100%" background="#f6f8fa"/> </div> <div class="col ">  <img src="/firthfsl/assets/static_figures/dacc_vs_nshots_l2_1layer_mini.svg" alt="drawing" width="100%"/> </div>  </div></div>  </div>
+ <div style="text-align:center;">  <div class="container"><div class="row"> <div class="col ">  <img src="/assets/static_figures/dacc_vs_nshots_firth_1layer_mini.svg" alt="drawing" width="100%" background="#f6f8fa"/> </div> <div class="col ">  <img src="/assets/static_figures/dacc_vs_nshots_l2_1layer_mini.svg" alt="drawing" width="100%"/> </div>  </div></div>  </div>
 <p> <div style="text-align:center;"> </div> Here&#39;s the same set of results, but with 3-layer logistic classifiers &#40;instead of 1-layer networks&#41;.</p>
- <div style="text-align:center;">  <div class="container"><div class="row"> <div class="col ">  <img src="/firthfsl/assets/static_figures/dacc_vs_nshots_firth_3layer_mini.svg" alt="drawing" width="100%"/> </div> <div class="col ">  <img src="/firthfsl/assets/static_figures/dacc_vs_nshots_l2_3layer_mini.svg" alt="drawing" width="100%"/> </div>  </div></div>  </div>
+ <div style="text-align:center;">  <div class="container"><div class="row"> <div class="col ">  <img src="/assets/static_figures/dacc_vs_nshots_firth_3layer_mini.svg" alt="drawing" width="100%"/> </div> <div class="col ">  <img src="/assets/static_figures/dacc_vs_nshots_l2_3layer_mini.svg" alt="drawing" width="100%"/> </div>  </div></div>  </div>
 <p> <div style="text-align:center;"> </div> <strong>Cosine Classifiers and S2M2R Feature Backbones</strong></p>
 <p>Below is the effect of Firth bias reduction on cosine classifiers and S2M2R features. The horizontal axis is the number of classes, and the vertical axis shows the Firth accuracy improvements.</p>
- <div style="text-align:center;">  <div class="container"><div class="row"> <div class="col ">  <img src="/firthfsl/assets/static_figures/dacc_vs_nways_miniImagenet.svg" alt="drawing" width="100%"/> </div> <div class="col ">  <img src="/firthfsl/assets/static_figures/dacc_vs_nways_cifar.svg" alt="drawing" width="100%"/> </div>  </div></div>  </div>
- <div style="text-align:center;">  <div class="container"><div class="row"> <div class="col "> </div>  <img src="/firthfsl/assets/static_figures/dacc_vs_nways_tieredImagenet.svg" alt="drawing" width="100%"/>  </div></div>  </div>
+ <div style="text-align:center;">  <div class="container"><div class="row"> <div class="col ">  <img src="/assets/static_figures/dacc_vs_nways_miniImagenet.svg" alt="drawing" width="100%"/> </div> <div class="col ">  <img src="/assets/static_figures/dacc_vs_nways_cifar.svg" alt="drawing" width="100%"/> </div>  </div></div>  </div>
+ <div style="text-align:center;">  <div class="container"><div class="row"> <div class="col "> </div>  <img src="/assets/static_figures/dacc_vs_nways_tieredImagenet.svg" alt="drawing" width="100%"/>  </div></div>  </div>
 <p> <div style="text-align:center;"> </div> <strong>Firth Bias Reduction on the Distribution Calibration Method</strong></p>
 <p>The following shows the recent state of the art method of few-shot <a href="https://arxiv.org/abs/2101.06395">Distribution Calibration &#40;DC&#41;</a> in cross-domain settings with and without Firth bias reduction. Each setting was tested with and without data augmentation &#40;addition of 750 samples&#41;, and the maximum accuracy was reported. Note that the confidence intervals are much smaller for the improvement column, thanks to the random-effect matching procedure we used in this study.  <div style="text-align:center;"> <table class="table table-striped"> <thead><tr><th align="center"></th><th align="center"></th><th align="center"></th><th align="center">mini → CUB</th><th align="center"></th><th align="center"></th><th align="center">tiered → CUB</th><th align="center"></th></tr></thead><tbody><tr><td align="center"><strong>Way</strong></td><td align="center"><strong>Shot</strong></td><td align="center"><strong>Before</strong></td><td align="center"><strong>After</strong></td><td align="center"><strong>Improvement</strong></td><td align="center"><strong>Before</strong></td><td align="center"><strong>After</strong></td><td align="center"><strong>Improvement</strong></td></tr><tr><td align="center">10</td><td align="center">1</td><td align="center">37.14 ± 0.12</td><td align="center">37.41 ± 0.12</td><td align="center">0.27 ± 0.03</td><td align="center">64.36 ± 0.16</td><td align="center">64.52 ± 0.16</td><td align="center">0.15 ± 0.03</td></tr><tr><td align="center">10</td><td align="center">5</td><td align="center">59.77 ± 0.12</td><td align="center">60.77 ± 0.12</td><td align="center">1.00 ± 0.04</td><td align="center">86.23 ± 0.10</td><td align="center">86.66 ± 0.09</td><td align="center">0.43 ± 0.03</td></tr><tr><td align="center">15</td><td align="center">1</td><td align="center">30.22 ± 0.09</td><td align="center">30.37 ± 0.09</td><td align="center">0.15 ± 0.03</td><td align="center">57.73 ± 0.13</td><td align="center">57.73 ± 0.13</td><td align="center">0.00 ± 0.00</td></tr><tr><td align="center">15</td><td align="center">5</td><td align="center">52.73 ± 0.09</td><td align="center">53.84 ± 0.09</td><td align="center">1.11 ± 0.03</td><td align="center">82.16 ± 0.09</td><td align="center">83.05 ± 0.08</td><td align="center">0.89 ± 0.03</td></tr></tbody></table>  </div></p>
 <p>      </div>
@@ -391,7 +391,7 @@ Our <a href="https://github.com/ehsansaleh/firth_bias_reduction">open-source cod
 
 
   
-  <script src="/firthfsl/libs/simple-scrollspy.min.js"></script>
+  <script src="/libs/simple-scrollspy.min.js"></script>
   <script>
   window.onload = function () {
     scrollSpy('#navbarResponsive', {
